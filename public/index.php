@@ -79,7 +79,7 @@ $app->post('/migrate/{type}', function (Request $request, Response $response, $a
 
 $app->group('/delay-reports', function (RouteCollectorProxy $group) {
     $group->post('/register/{order-id}', \App\ServiceLayer\Controllers\DelayReport::class . ':Register');
-    $group->post('/track/{tracker-id}', \App\ServiceLayer\Controllers\DelayReport::class . ':Track');
+    $group->patch('/track/{tracker-id}', \App\ServiceLayer\Controllers\DelayReport::class . ':Track');
     $group->get('/list/{vendor-id}', \App\ServiceLayer\Controllers\DelayReport::class . ':ListByVendorId');
 });
 
