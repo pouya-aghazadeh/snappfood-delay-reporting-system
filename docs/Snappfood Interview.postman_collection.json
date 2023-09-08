@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "fb6d5a45-78fd-4ba3-8cd4-a23b5911956c",
+		"name": "Snappfood Interview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8225357"
+	},
+	"item": [
+		{
+			"name": "Track A Delay Report From Queue",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/delay-reports/track/{{tracker-id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"delay-reports",
+						"track",
+						"{{tracker-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register A Delay Report By Order ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/delay-reports/register/{{order-id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"delay-reports",
+						"register",
+						"{{order-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gel Stat Of Last Week's Delays By Vendor ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/delay-reports/list/{{vendor-id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"delay-reports",
+						"list",
+						"{{vendor-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Migrate Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/migrate/up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"migrate",
+						"up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Migrate Down",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/migrate/down",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"migrate",
+						"down"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Seed Migrations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/migrate/seed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"migrate",
+						"seed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Truncate Migrations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/migrate/trunc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"migrate",
+						"trunc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Connection Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
