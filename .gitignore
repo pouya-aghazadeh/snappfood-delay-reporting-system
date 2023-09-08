@@ -1,0 +1,6 @@
+vendor/
+.idea/
+db-wrapper/
+docs/
+composer.lock
+Dockerfile
