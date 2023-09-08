@@ -55,14 +55,8 @@ class DelayReport extends BusinessEntity
         $existence_check = $this->db->get('delay_reports', '*', [
             'order_id' => $orderId,
             'OR' => [
-                'AND #1' => [
-                    'tracker_id[!]' => null,
-                    'approx_delay_amount' => null
-                ],
-                'AND #2' => [
-                    'tracker_id' => null,
-                    'approx_delay_amount[!]' => null
-                ],
+                'tracker_id' => null,
+                'approx_delay_amount' => null
             ],
             'ORDER' => [
                 'id' => 'DESC'
@@ -117,7 +111,7 @@ class DelayReport extends BusinessEntity
         ]);
         return [
             'success' => true,
-            'message' => 'now you\'re tracking report with id : '.$untracked_report['id']
+            'message' => 'now you\'re tracking report with id : ' . $untracked_report['id']
         ];
     }
 
@@ -131,13 +125,13 @@ class DelayReport extends BusinessEntity
         }
 
         // query for fetching statistics of last week
-        return $this->db->select('orders(o)',[
+        return $this->db->select('orders(o)', [
             '[><]delay_reports(dr)' => ['o.id' => 'order_id'],
-        ],[
+        ], [
             'date' => Medoo::raw('DATE(dr.created_at)'),
             'delay' => Medoo::raw('SUM(dr.approx_delay_amount)')
-        ],[
-            'dr.created_at[>]' => date('Y-m-d H:i:s',strtotime('-7 day')),
+        ], [
+            'dr.created_at[>]' => date('Y-m-d H:i:s', strtotime('-7 day')),
             'GROUP' => Medoo::raw('DATE(dr.created_at)'),
             'ORDER' => [
                 'dr.created_at' => 'DESC'
