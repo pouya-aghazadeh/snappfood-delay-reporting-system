@@ -2,6 +2,7 @@ version: '3.3'
 services:
   snappfood-db:
     image: mysql:latest
+    container_name: snappfood-db
     restart: always
     environment:
       MYSQL_DATABASE: 'snappfood'
@@ -9,10 +10,23 @@ services:
       MYSQL_PASSWORD: '1234'
       MYSQL_ROOT_PASSWORD: '1234'
     ports:
-      - '1234:3306'
+      - '3306:3306'
     expose:
       - '1234'
     volumes:
       - my-db:/var/lib/mysql
+  snappfood-app:
+    build:
+      context: .
+      dockerfile: snappfood-app.dockerfile
+    container_name: snappfood-app
+    restart: always
+    command: php -S 0.0.0.0:80 -t public
+    ports:
+      - '8000:80'
+    expose:
+      - '8000'
+    volumes:
+      - /opt/workplace/projects/php/snappfood:/var/www/html
 volumes:
   my-db:

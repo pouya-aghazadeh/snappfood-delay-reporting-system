@@ -30,9 +30,10 @@ $errorMiddleware->setDefaultErrorHandler(function (Request $request, Throwable $
         'error' => $exception->getMessage()
     ];
     $response = $app->getResponseFactory()->createResponse()->withStatus($code)->withHeader('Content-Type', 'application/json');
-    return $response->getBody()->write(
+    $response->getBody()->write(
         json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)
     );
+    return $response;
 });
 
 
@@ -41,8 +42,8 @@ $errorMiddleware->setDefaultErrorHandler(function (Request $request, Throwable $
 $container->set('database', function () {
     return new Medoo([
         'type' => 'mysql',
-        'host' => '127.0.0.1',
-        'port' => '1234',
+        'host' => 'snappfood-db',
+        'port' => '3306',
         'database' => 'snappfood',
         'username' => 'dba',
         'password' => '1234'
