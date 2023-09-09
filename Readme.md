@@ -5,8 +5,9 @@
 
 
 ### Step 1. Database/Application Initialization
-- `cd <project-path>`
-- `docker compose up -d`
+- go to root of project with `cd <project-path>`
+- install dependencies with `composer install`
+- compose up docker containers with `docker compose up -d`
 - check the container status with `docker ps` or `docker logs snappfood-<db/app>`
 
 ### Step 2. Check The Connection
